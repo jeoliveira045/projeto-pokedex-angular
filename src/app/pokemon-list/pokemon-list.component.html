@@ -1,0 +1,23 @@
+<html>
+<head>
+
+</head>
+<body>
+  <ul class="pokemons" >
+      <li class="pokemon" *ngFor="let pokemon of pokemons">
+        <span>{{pokemon.name}}</span>
+        <div *ngFor="let ability of pokemon.abilities">
+          <span>{{ability.ability.name}}</span>
+        </div>
+        <div class="image-container">
+          <img src="{{pokemon.sprites}}" class="pokemon-image" />
+        </div>
+        <div class="types" >
+          <div class=" type {{type.type.name}}" *ngFor="let type of pokemon.types">
+            {{type.type.name}}
+          </div>
+        </div>
+      </li>
+  </ul>
+</body>
+</html>
