@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+    protected readonly event = event;
+  protected readonly Event = Event;
 }
