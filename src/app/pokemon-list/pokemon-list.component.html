@@ -1,7 +1,7 @@
 
 <ul class="pokemons" >
     <li class="pokemon {{pokemon.type}}" *ngFor="let pokemon of pokemons">
-      <span>{{pokemon.name}}</span>
+      <h2 style="color: white;margin-top: 0;margin-bottom: 0.5px;"><i>{{pokemon.name}}</i></h2>
       <div *ngFor="let ability of pokemon.abilities">
         <span>{{ability.ability.name}}</span>
       </div>
@@ -16,5 +16,7 @@
     </li>
 </ul>
 <!--<span>{{limit}}</span>-->
-<button (click)="adicionarOffset()">Adicionar Limite</button>
-<button (click)="zerarContagem()" >Zerar Contagem</button>
+<div class="button-container">
+  <div class="loadButton" style="font-family: Roboto" (click)="adicionarOffset()">Carregar Mais</div>
+</div>
+

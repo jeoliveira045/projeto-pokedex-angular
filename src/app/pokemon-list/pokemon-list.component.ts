@@ -31,23 +31,15 @@ export class PokemonListComponent implements OnInit{
 
   public adicionarOffset(){
     this.offset += 10
-    this.service.getPokemons(this.offset,this.limit).subscribe((res: any) => {
-      for(let i = 0; i < this.limit; i++) {
-        let pokemon = new Pokemon()
-        pokemon.name = res.results?.[i].name
-        this.service.getPokemonItem(res.results?.[i].url).subscribe((res: any) => {
-          pokemon.abilities = res.abilities
-          pokemon.sprites = res.sprites.other.home.front_default
-          pokemon.type = res.types[0].type.name
-          pokemon.types = res.types
-        })
-        this.pokemons.push(pokemon)
-      }
-    })
+    this.loadPokemons()
   }
 
   public zerarContagem(){
     this.offset = 10
+    this.loadPokemons()
+  }
+
+  loadPokemons(){
     this.service.getPokemons(this.offset,this.limit).subscribe((res: any) => {
       for(let i = 0; i < this.limit; i++) {
         let pokemon = new Pokemon()
@@ -55,6 +47,7 @@ export class PokemonListComponent implements OnInit{
         this.service.getPokemonItem(res.results?.[i].url).subscribe((res: any) => {
           pokemon.abilities = res.abilities
           pokemon.sprites = res.sprites.other.home.front_default
+          console.log(pokemon.sprites)
           pokemon.type = res.types[0].type.name
           pokemon.types = res.types
         })
@@ -66,43 +59,6 @@ export class PokemonListComponent implements OnInit{
 
 
   ngOnInit() {
-    this.service.getPokemons(this.offset,this.limit).subscribe((res: any) => {
-      for(let i = this.offset; i < this.limit; i++) {
-        let pokemon = new Pokemon()
-        pokemon.name = res.results?.[i].name
-        this.service.getPokemonItem(res.results?.[i].url).subscribe((res: any) => {
-          pokemon.abilities = res.abilities
-          pokemon.sprites = res.sprites.other.home.front_default
-          pokemon.type = res.types[0].type.name
-          pokemon.types = res.types
-        })
-        this.pokemons.push(pokemon)
-      }
-    })
+    this.loadPokemons()
   }
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log(changes)
-  // }
-  //
-  // ngDoCheck(){
-  //   console.log('ngDoCheck')
-  // }
-  //
-  // ngAfterContentChecked() {
-  //   console.log('AfterContentChecked')
-  // }
-  //
-  // ngAfterContentInit() {
-  //   console.log('AfterContentInit')
-  // }
-  //
-  // ngAfterViewInit() {
-  //   console.log('AfterViewInit')
-  // }
-  //
-  // ngAfterViewChecked() {
-  //   console.log('AfterViewChecked')
-  // }
-
 }
