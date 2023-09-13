@@ -1,0 +1,16 @@
+<div class="tag-container">
+<div class="type-{{pokemon.type}}" id="tag">
+  <h1 class="pokemon-name">{{pokemon.name}}</h1>
+  <h2>Abilities: </h2>
+  <p *ngFor="let ability of pokemon.abilities">{{ability.ability.name}}</p>
+  <div class="pokemon-moves">
+    <h2>Moves: </h2>
+    <p *ngFor="let move of pokemon.moves">{{move.move.name}}</p>
+  </div>
+
+  <div class="image-container">
+    <img src="{{pokemon.sprites}}" />
+  </div>
+
+</div>
+</div>

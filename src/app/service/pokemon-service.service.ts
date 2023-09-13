@@ -22,4 +22,8 @@ export class PokemonServiceService {
     return this.http.get(url)
   }
 
+  public getPokemonPage(id: string){
+    return this.http.get(`${this.poke_url}pokemon/${id}`)
+  }
+
 }
