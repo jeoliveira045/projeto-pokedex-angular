@@ -1,16 +1,34 @@
 <div class="tag-container">
-<div class="type-{{pokemon.type}}" id="tag">
-  <h1 class="pokemon-name">{{pokemon.name}}</h1>
-  <h2>Abilities: </h2>
-  <p *ngFor="let ability of pokemon.abilities">{{ability.ability.name}}</p>
-  <div class="pokemon-moves">
-    <h2>Moves: </h2>
-    <p *ngFor="let move of pokemon.moves">{{move.move.name}}</p>
-  </div>
-
+<div class="{{pokemon.type}}" id="tag">
   <div class="image-container">
     <img src="{{pokemon.sprites}}" />
   </div>
+  <div class="pokemon-information">
+    <div class="pokemon-name-container">
+      <h1 class="pokemon-name">{{pokemon.name}}</h1>
+      <div class="pokemon-types" >
+        <div *ngFor="let type of pokemon.types" class="form type-{{type.type.name}}">
+          <span>{{type.type.name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="pokemon-detail">
 
+      <div class="pokemon-abilities type-{{pokemon.type}}">
+        <h2>Abilities: </h2>
+        <p *ngFor="let ability of pokemon.abilities">{{ability.ability.name}}</p>
+      </div>
+      <div class="pokemon-moves-stats">
+        <div class="pokemon-moves type-{{pokemon.type}}">
+          <h2>Moves: </h2>
+          <p *ngFor="let move of pokemon.moves">{{move.move.name}}</p>
+        </div>
+        <div class="pokemon-stats type-{{pokemon.type}}">
+          <h2>Stats</h2>
+          <p *ngFor="let stat of pokemon.stats">{{stat.stat.name}}:{{stat.base_stat}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>

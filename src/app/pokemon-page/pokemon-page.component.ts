@@ -21,6 +21,7 @@ export class PokemonPageComponent implements OnInit{
     this.activatedRoute.params.subscribe(res => {
       this.pokemonService.getPokemonPage(res['id']).subscribe(  (res:any) => {
         this.pokemon.name = res.name
+        this.pokemon.types = res.types
         this.pokemon.type = res.types[0].type.name
         this.pokemon.abilities = res.abilities
         for(let i = 0; i < 6;i++){
@@ -36,4 +37,5 @@ export class PokemonPageComponent implements OnInit{
 
   }
 
+  protected readonly console = console;
 }

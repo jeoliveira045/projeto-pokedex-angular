@@ -1,14 +1,23 @@
+$tamanho1: 700px
+$tamanho2: 1200px
 
+@function calcularTamanhoImagem($imagem, $mult)
+  @return $imagem * $mult
+
+.form
+  width: 60%
+  text-align: center
+  margin-right: 5%
 
 .fire
   background: #fd2121
 
 .type-fire
   background: #ff5050
-  width: 25%
-  padding: 3px 5px
+
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .grass
   background: #34ab34
@@ -16,50 +25,45 @@
 
 .type-grass
   background: #71f171
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .poison
   background: darkmagenta
 
 .type-poison
   background: #c700ae
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .water
   background: #00bbff
 
 .type-water
   background: #b9c8ff
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .bug
   background: #96ad00
 
 .type-bug
   background: #e8ff63
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .normal
   background: #8d8d8d
 
 .type-normal
   background: #c9c9c9
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 
 .flying
@@ -67,40 +71,36 @@
 
 .type-flying
   background: #e7e7e7
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .electric
   background: #ffcb00
 
 .type-electric
   background: #f8f400
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .ground
   background: #886100
 
 .type-ground
   background: #a67700
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 .fairy
   background: #f458ff
 
 .type-fairy
   background: #f19dfa
-  width: 25%
-  padding: 3px 5px
+  padding: 1rem 1rem
   border-radius: 10px
-  margin: 0 0 5px 0
+  margin-bottom: 5%
 
 #tag
   width: 80%
@@ -125,3 +125,82 @@
 .image-container
   display: flex
   justify-content: end
+
+.pokemon-information
+  width: 40%
+  display: flex
+  flex-direction: column
+
+
+.pokemon-moves-stats
+  display: flex
+  width: 100%
+  justify-content: space-evenly
+
+.pokemon-moves
+  padding: 0 15% 5% 5%
+  border-radius: 10px
+  width: 25%
+
+.pokemon-stats
+  padding: 0 15% 5% 5%
+  border-radius: 10px
+  width: 25%
+
+.pokemon-abilities
+  width: 74%
+  padding: 1% 15% 1rem 2rem
+  border-radius: 10px
+  margin: 0 0 1rem 0
+
+.pokemon-types
+  display: flex
+  margin-left: 5%
+
+.pokemon-name-container
+  display: flex
+  align-items: center
+
+.pokemon-detail
+  width: 100%
+  display: flex
+  align-items: center
+  flex-direction: column
+
+
+
+
+@media screen and (max-width: $tamanho1)
+  img
+   width: calcularTamanhoImagem($tamanho1, 0.7)
+
+@media screen and (max-width: $tamanho2)
+  #tag
+   display: flex
+   flex-direction: column
+   flex-wrap: nowrap
+   height: 100%
+   padding-bottom: 1rem
+
+  .pokemon-information
+   width: 100%
+   display: flex
+   flex-direction: column
+   align-items: center
+
+  .pokemon-name
+   text-align: center
+
+  .image-container
+   justify-content: center
+
+  img
+   width: calcularTamanhoImagem($tamanho1, 0.7)
+
+
+
+
+
+
+
+
